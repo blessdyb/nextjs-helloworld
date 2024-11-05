@@ -30,17 +30,17 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Copy assets to public folder
-        run: |
-          mkdir -p public
-          cp -r build/static/* public/
+      # - name: Copy assets to public folder
+      #   run: |
+      #     mkdir -p public
+      #     cp -r build/static/* public/
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Add built assets to public folder"
+          git commit -m "Build & Commit changes"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
