@@ -8,6 +8,9 @@ on:
     branches:
       - main # Optional, if you want to run on PRs too
 
+permissions:
+  contents: write # Grant write permissions to the GitHub Actions bot
+
 jobs:
   build:
     runs-on: ubuntu-latest
