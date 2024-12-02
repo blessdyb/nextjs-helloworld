@@ -10,8 +10,8 @@ app.prepare().then(() => {
   const server = express();
 
   // Add your Express.js API routes here
-  server.get("/api/data", (req, res) => {
-    res.json({ message: "Hello from Express.js!" });
+  server.get("/nextjs-helloworld/api/data", (req, res) => {
+    res.json({ message: "Hello from Express.js! " });
   });
 
   // Let Next.js handle all other routes
