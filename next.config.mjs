@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   distDir: "build",
-  basePath: "/nextjs-helloworld",
+  basePath: "/nextjs-helloworld-2",
 };
 
 export default nextConfig;
