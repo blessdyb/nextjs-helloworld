@@ -9,29 +9,30 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
-  const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-  });
-  db.connect((err) => {
-    if (err) {
-      console.error("Database connection failed:", err.stack);
-      return;
-    }
-    console.log("Connected to MySQL database.");
-  });
 
   // Add your Express.js API routes here
-  server.get("/nextjs-helloworld/api/data-test", (req, res) => {
-    const query = "SELECT country, code_section FROM data";
-    db.query(query, (err, results) => {
+  server.get("/nextjs-helloworld-2/api/data-test", (req, res) => {
+    const db = mysql.createConnection({
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+    });
+    db.connect((err) => {
       if (err) {
-        console.error("Error executing query:", err.stack);
-        return res.status(500).send("Error executing query");
+        console.error("Database connection failed:", err.stack);
+        return res.json({});
       }
-      res.json(results);
+      console.log("Connected to MySQL database.");
+
+      const query = "SELECT country, code_section FROM data";
+      db.query(query, (err, results) => {
+        if (err) {
+          console.error("Error executing query:", err.stack);
+          return res.status(500).send("Error executing query");
+        }
+        res.json(results);
+      });
     });
   });
 
