@@ -11,7 +11,7 @@ app.prepare().then(() => {
   const server = express();
 
   // Add your Express.js API routes here
-  server.get("/nextjs-helloworld-4/api/data-test-3", (req, res) => {
+  server.get("/nextjs-helloworld-4/api/data-test-4", (req, res) => {
     const db = mysql.createConnection({
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
@@ -28,7 +28,7 @@ app.prepare().then(() => {
       }
       console.log("Connected to MySQL database.");
 
-      const query = "SELECT country, code_section FROM data";
+      const query = "SELECT county, code_section FROM data";
       db.query(query, (err, results) => {
         if (err) {
           console.error("Error executing query:", err.stack);
