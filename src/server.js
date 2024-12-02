@@ -11,7 +11,7 @@ app.prepare().then(() => {
   const server = express();
 
   // Add your Express.js API routes here
-  server.get("/nextjs-helloworld-2/api/data-test-3", (req, res) => {
+  server.get("/nextjs-helloworld-4/api/data-test-3", (req, res) => {
     const db = mysql.createConnection({
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
