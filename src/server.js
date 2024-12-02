@@ -24,7 +24,7 @@ app.prepare().then(() => {
   });
 
   // Add your Express.js API routes here
-  server.get("/nextjs-helloworld/api/data", (req, res) => {
+  server.get("/nextjs-helloworld/api/data-test", (req, res) => {
     const query = "SELECT country, code_section FROM data";
     db.query(query, (err, results) => {
       if (err) {
